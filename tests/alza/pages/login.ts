@@ -11,9 +11,9 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.loginLink = page.getByTestId('headerContextMenuToggleLogin');
-        // this.title = page.getByRole("heading", {name: "Prihlásenie"});
-        this.title = page.getByText("Prihlásenie");
+        this.loginLink = page.getByText("Prihlásiť sa");
+        this.title = page.getByRole("heading", {name: "Prihlásenie"});
+        // this.loginLink = page.getByTestId('headerContextMenuToggleLogin');
         this.userName = page.locator("#userName");
         this.password = page.locator("#password");
         this.submit = page.locator("#loginButtonText");
@@ -24,7 +24,7 @@ export class LoginPage {
         await this.page.goto("https://www.alza.sk/");
     }  
 
-    async clickLogin () {
+    async clickLoginLink () {
         await this.loginLink.click();
     }  
 
@@ -33,7 +33,7 @@ export class LoginPage {
     }
 
     async inputUserName () {
-        await this.userName.fill("email@subdomain.domain.com");
+        await this.userName.fill("test@address.com");
     }
 
     async inputPassword () {
@@ -54,7 +54,7 @@ export class LoginPage {
 
     async loginProcess () {
         await expect (this.title).toBeVisible();
-        await this.userName.fill("email@subdomain.domain.com");
+        await this.userName.fill("test@address.com");
         await this.password.fill("6SNx4WB87C3tXF");
         await this.submit.click();
     }

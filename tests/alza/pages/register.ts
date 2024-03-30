@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 
 export class Registration {
     page: Page;
@@ -10,6 +10,7 @@ export class Registration {
     regPasswordConf: Locator;
     regNumber: Locator;
     submitButton: Locator;
+    title: Locator;
 
 
     constructor(page: Page) {
@@ -19,8 +20,9 @@ export class Registration {
         this.regEmail = page.locator("#edth1EmailLogin");
         this.regPassword = page.locator("#edth1Password");
         this.regPasswordConf = page.locator("#edth1PasswordConfirm");
-        this.regNumber = page.locator("ctl00_ctl00_cpcm_cpc_ud2_phoneCountryBasicPhoneValidator_inpTelNumber");
+        this.regNumber = page.locator("#ctl00_ctl00_cpcm_cpc_ud2_phoneCountryBasicPhoneValidator_inpTelNumber");
         this.submitButton = page.getByText("Uložiť");
+        this.title = page.getByText("Prihlásenie");
     }
     
     async gotoPage () {
@@ -36,7 +38,7 @@ export class Registration {
     }    
 
     async regEmailInput () {
-        await this.regEmail.fill("email@subdomain.domain.com");
+        await this.regEmail.fill("testing@address.com"); // still use another e-mail address
     }     
 
     async regPasswordInput () {
@@ -53,6 +55,10 @@ export class Registration {
 
     async submit () {
         await this.submitButton.click();
+    }    
+
+    async loginText () {
+        await expect (this.title).toBeVisible();
     }    
 
 }
