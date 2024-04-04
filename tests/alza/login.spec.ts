@@ -4,7 +4,7 @@ import { Registration } from './pages/register';
 
 test.describe("Login test with annotation", () => {
 
-test("Login", async ({page}) => {
+test.only("Login", async ({page}) => {
      test.info().annotations.push(({
        type: "Test",
          description: "This test allows user to login on alza.sk."
@@ -17,6 +17,10 @@ test("Login", async ({page}) => {
         await newReg.gotoPage();
     })
 
+    await test.step("Waiting for Prihlásiť sa", async() => {
+        await login.waitForLoginLink();
+    })
+
     await test.step("Click on Moja Alza", async () => {
         await login.clickLoginLink();
     })
@@ -24,6 +28,8 @@ test("Login", async ({page}) => {
     await test.step("This inputs valid login credentials", async () => {
         await login.loginProcess();
     })
+
+    // await expect(page.getByTestId("headerContextMenuToggleTitle")).toBeVisible();
 
     await test.step("Click on Moja Alza", async () => {
         await newReg.account();
