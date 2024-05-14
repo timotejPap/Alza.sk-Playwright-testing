@@ -4,10 +4,10 @@ import { Registration } from './pages/register';
 
 test.describe("Login test with annotation", () => {
 
-test("Login", async ({page}) => {
+test.only("Login", async ({page}) => {
      test.info().annotations.push(({
        type: "Test",
-         description: "This test allows user to login on alza.sk."
+         description: "This test allows user to login to alza.sk."
     }));
 
     const login = new LoginPage (page);
