@@ -18,16 +18,12 @@ test("Login to alza", async ({page}) => {
         await page.goto("https://www.alza.sk/");
     })
 
-    await test.step("Waiting for Prihlásiť sa", async() => {
-        await login.waitForLoginLink();
-    })
-
     await test.step("Click on Moja Alza", async () => {
         await login.clickLoginLink();
     })
 
     await test.step("This inputs valid login credentials", async () => {
-        await login.loginInputs();
+        await login.emailOKPassOK();
     })
 
     await test.step("Click on Moja Alza", async () => {
@@ -41,7 +37,7 @@ test("Login to alza", async ({page}) => {
 
 
 
-test.only("Shopping watches", async ({page}) => {
+test("Shopping watches", async ({page}) => {
     test.info().annotations.push(({
         type: "Test",
         description: "This test allows user to add an item into basket."
