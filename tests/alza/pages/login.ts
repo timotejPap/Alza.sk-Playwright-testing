@@ -58,7 +58,7 @@ export class LoginPage {
         await this.logout.click();
     }  
 
-    async loginProcess () {
+    async loginInputs () {
         await expect (this.title).toBeVisible();
         await this.userName.fill("test@address.com");
         await this.password.fill("6SNx4WB87C3tXF");
