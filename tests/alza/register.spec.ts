@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { Registration } from './pages/register';
 
-test.describe("Registration test with annotation", () => {
+test.describe("User registration test with annotation", () => {
 
     test("Login", async ({page}) => {
          test.info().annotations.push(({
@@ -23,7 +23,7 @@ test.describe("Registration test with annotation", () => {
         await newReg.registerLink();
     })
 
-    await test.step("Click to email input field", async () => {
+    await test.step("Click on email input field", async () => {
         await page.locator("#edth1EmailLogin").click();
     })
 

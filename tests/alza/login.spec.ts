@@ -63,9 +63,9 @@ test("Login NO - Email Y, Password N @EYPN", async ({page}) => {
         await login.emailOKPassNO();
     })
 
-    await test.step("Checks login text", async () => {
-        await login.titleText();
-    })
+     await test.step("Checks login text", async () => {
+         await login.titleText();
+     })
 })
 
 

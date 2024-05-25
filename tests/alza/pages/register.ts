@@ -5,7 +5,6 @@ export class Registration {
     mojaAlza: Locator;
     regLink: Locator;
     regEmail: Locator;
-    deleteSymbol: Locator;
     regPassword: Locator;
     regPasswordConf: Locator;
     regNumber: Locator;

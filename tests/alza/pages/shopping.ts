@@ -30,6 +30,7 @@ export class Shopping {
 
     async clickWatchCasio () {
         await this.clickWatch.click();
+        await this.page.screenshot({ path: 'searchResult.png' });
     }
 
 

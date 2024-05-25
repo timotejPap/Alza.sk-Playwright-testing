@@ -35,6 +35,7 @@ export class LoginPage {
 
     async titleText () {
         await expect (this.title).toBeVisible();
+        await this.page.screenshot({ path: 'loginText.png' });
     }
 
     async logoutText () {
