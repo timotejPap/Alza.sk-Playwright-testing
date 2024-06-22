@@ -13,7 +13,7 @@ export class Shopping {
         this.account = page.getByTestId("headerContextMenuToggleTitle");
         this.itemName = page.getByPlaceholder('Čo hľadáte? Napr. kábel');
         this.clickSearch = page.getByTestId('button-search');
-        this.clickWatch = page.getByTitle("CASIO LCW M100DSE-2A - Pánske");
+        this.clickWatch = page.getByRole('checkbox', { name: "CASIO LCW M100DSE-2A - Pánske"});
     }
 
     async clickOnMojaAlza () {
@@ -28,11 +28,10 @@ export class Shopping {
         await this.clickSearch.click();
     }
 
+    // opraviť spodný test
     async clickWatchCasio () {
         await this.clickWatch.click();
         await this.page.screenshot({ path: 'searchResult.png' });
     }
-
-
 
 }

@@ -1,7 +1,17 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, chromium, Browser, Page } from '@playwright/test';
 import { LoginPage } from './pages/login';
 
+
 test.describe("Login test with annotation", () => {
+
+test.beforeAll( async () => {
+    console.log("Tento text sa vypíše PRED testovacou sadou do konzoly.");
+});
+
+test.afterAll(async ({page}) => {
+    console.log("Tento text sa vypíše PO testovacej sade do konzoly");
+    await page.close();
+});
 
 
 // valid email and valid password
@@ -123,7 +133,6 @@ test("Login NO - Email N, Password N @ENPN", async ({page}) => {
     await test.step("Checks login text", async () => {
         await login.titleText();
     })
-
 
 });
 })
